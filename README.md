@@ -77,3 +77,11 @@ Q. What are the customer ids of customers who have spent more than $100 in payme
     WHERE staff_id=2
     GROUP BY customer_id,staff_id
     HAVING SUM(amount)>=100
+
+Q. What customer has the highest customer ID number whose name starts with an 'E' and has an address ID lower than 500?
+
+    SELECT first_name,last_name FROM customer
+    WHERE first_name LIKE 'E%'
+    AND address_id <500
+    ORDER BY customer_id DESC
+    LIMIT 1;
