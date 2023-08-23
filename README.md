@@ -40,3 +40,26 @@ Q. How many employee have the word mman somewhere in the first name?
     SELECT COUNT(*) FROM employees
     WHERE first_name ilike ='%mman%'
 
+
+### Group BY statements
+Q. We have two staff members, with Staff Id 1 and 2. We watn to give give a bonus to the staff member that handled the most payments. 
+
+How may payments did each staff member handle and who gets the bonus?
+    
+    SELECT staff_id, COUNT(amount) FROM payment
+    GROUP BY staff_id
+ 
+Q. Corporate HQ is conducting a study on the relationship between replament cost and a movie MPAA rating(e.g. G, PG, R, etc...)
+
+What is the average replacement cost per MPAA rating?
+
+    SELECT rating, avg(replacement_cost) FROM film
+    GROUP BY rating
+Q. We are running a promotion to reward our top 5 customers with coupons.
+
+What are the customer ids of the top 5 customers by total spend?
+
+    SELECT customer_id, SUM(amount) FROM payment
+    GROUP BY customer_id
+    ORDER BY (SUM(amount))
+    LIMIT 5
