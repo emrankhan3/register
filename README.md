@@ -85,3 +85,25 @@ Q. What customer has the highest customer ID number whose name starts with an 'E
     AND address_id <500
     ORDER BY customer_id DESC
     LIMIT 1;
+
+### JOIN
+Q. Chittagong sales tax laws have changed and we need to alert our customers to this through email.
+
+What are the emails of the customers who live in Chittagong?
+
+    SELECT address.address_id,district,email FROM address
+    JOIN customer
+    ON address.address_id = customer.address_id
+    WHERE district = 'Chittagong'
+
+ 
+Q. A customer walks in and is a huge fan of the actor "Emran Khan" and wants to know which movies he is in?
+
+Get a list of all the movies "Emran Khan" has been in.
+
+    SELECT title,first_name, last_name from actor
+    LEFT JOIN film_actor
+    ON actor.actor_id = film_actor.actor_id
+    JOIN film
+    ON film_actor.film_id = film.film_id
+    where first_name = 'Emran' and last_name ='Khan'
