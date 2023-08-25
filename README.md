@@ -87,6 +87,7 @@ Q. What customer has the highest customer ID number whose name starts with an 'E
     LIMIT 1;
 
 ### JOIN
+
 Q. Chittagong sales tax laws have changed and we need to alert our customers to this through email.
 
 What are the emails of the customers who live in Chittagong?
@@ -96,7 +97,6 @@ What are the emails of the customers who live in Chittagong?
     ON address.address_id = customer.address_id
     WHERE district = 'Chittagong'
 
- 
 Q. A customer walks in and is a huge fan of the actor "Emran Khan" and wants to know which movies he is in?
 
 Get a list of all the movies "Emran Khan" has been in.
@@ -107,3 +107,15 @@ Get a list of all the movies "Emran Khan" has been in.
     JOIN film
     ON film_actor.film_id = film.film_id
     where first_name = 'Emran' and last_name ='Khan'
+
+### Time Stamp
+
+Q. During which months did payments occur?
+Format your answer to return back the full month name.
+
+    SELECT DISTINCTstinct(to_char(payment_date,'MONTH')) FROM payment
+
+Q. How many payments occurred on a Monday?
+
+    SELECT COUNT(*) FROM payment
+    WHERE EXTRACT(dow FROM payment_date) = 1
