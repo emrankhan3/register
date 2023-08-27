@@ -15,10 +15,10 @@ Q. How many payment transactions were greater than $5.00?
     WHERE amount > 5;
 ```
 Q. How many employee have a first name that starts with the letter P?
-
+```
     SELECT COUNT(*) FROM emp
     WHERE first_name LIKE 'P%';
-
+```
 Q. How many unique districts are our customers from?
 
     SELECT COUNT(DISTINCT(district)) FROM customers
