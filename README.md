@@ -9,7 +9,7 @@
 
 ### Fundamental
 
-Q. How many payment transactions were greater than $5.00?
+Q. How many payment transactions is greater than $5.00?
 ```sql
     SELECT COUNT(amount) FROM payment
     WHERE amount > 5;
